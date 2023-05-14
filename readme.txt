@@ -11,3 +11,5 @@ How to push a local project to a remote github repo:
 1-git remote add <name> <url> / git remote add origin <remote_url>
 2-commit all your code with git commit -m <message>
 3-git push 
+
+config file in .git
