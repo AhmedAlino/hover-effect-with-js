@@ -9,6 +9,10 @@ image.crossOrigin = "Anonymous";
 const PARTICLE_DIAMETER = 4;
 const particles = []; //Array to hold each particles
 
+// for mouse mouvement
+let mouseX = Infinity;
+let mouseY = Infinity;
+
 image.addEventListener('load', () => {
     canvas.width = image.width;
     canvas.height = image.height;
@@ -91,9 +95,6 @@ function updateParticles() {
 }
 
 //Handling the mouse mouvement
-let mouseX = Infinity;
-let mouseY = Infinity;
-
 canvas.addEventListener('mousemove', (event) => {
     mouseX = event.offsetX;
     mouseY = event.offsetY;
