@@ -54,29 +54,13 @@ function drawParticle() {
         ctx.fillStyle = particle.color;
         ctx.fill();
     });
-
     requestAnimationFrame(drawParticle);
 }
 
-//Handling the mouse mouvement
-let mouseX = Infinity;
-let mouseY = Infinity;
-
-image.addEventListener('mousemove', (event) => {
-    mouseX = event.offsetX;
-    mouseY = event.offsetY;
-});
-
-
-image.addEventListener('mouseleave', () => {
-    mouseX = Infinity;
-    mouseY = Infinity;
-});
-
 function updateParticles() {
-    const REPEL_RADIUS = 50;
-    const REPEL_SPEED = 5;
-    const RETURN_SPEED = 0.1;
+    const REPEL_RADIUS = 90;
+    const REPEL_SPEED = 50;
+    const RETURN_SPEED = 0.4;
 
     particles.forEach((particle) => {
         const distanceFromMouseX = mouseX - particle.x;
@@ -96,7 +80,7 @@ function updateParticles() {
             const distanceFromOriginY = particle.originY - particle.y;
             const distanceFromOrigin = Math.sqrt(distanceFromOriginX ** 2 + distanceFromOriginY ** 2);
 
-            const angle  = Math.atan2(distanceFromOriginY, distanceFromMouseX);
+            const angle  = Math.atan2(distanceFromOriginY, distanceFromOriginX);
             const moveX = Math.cos(angle) * distanceFromOrigin * RETURN_SPEED;
             const moveY = Math.sin(angle) * distanceFromOrigin * RETURN_SPEED;
 
@@ -105,3 +89,17 @@ function updateParticles() {
         }
     });
 }
+
+//Handling the mouse mouvement
+let mouseX = Infinity;
+let mouseY = Infinity;
+
+canvas.addEventListener('mousemove', (event) => {
+    mouseX = event.offsetX;
+    mouseY = event.offsetY;
+});
+
+canvas.addEventListener('mouseleave', () => {
+    mouseX = Infinity;
+    mouseY = Infinity;
+});

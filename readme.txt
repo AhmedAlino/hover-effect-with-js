@@ -13,3 +13,11 @@ How to push a local project to a remote github repo:
 3-git push 
 
 config file in .git
+
+
+Go to the developer tools (F12 in the browser), then select the three dots in the upper right corner, and go to Settings.
+
+Then, look for Sources, and disable the options:
+
+"Enable JavaScript source maps"
+"Enable CSS source maps"
