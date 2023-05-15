@@ -14,10 +14,10 @@ let mouseX = Infinity;
 let mouseY = Infinity;
 
 image.addEventListener('load', () => {
-    canvas.width = image.width;
-    canvas.height = image.height;
+    canvas.width = image.width + 100;
+    canvas.height = image.height + 100;
 
-    ctx.drawImage(image, 0, 0);
+    ctx.drawImage(image, 100, 50);
     //getting the pixel of the image
     //imageDate is an array of pixels imageDate = [rgba, rgba, ...]
     const imageData = ctx.getImageData(0, 0, image.width, image.height).data;
@@ -62,9 +62,9 @@ function drawParticle() {
 }
 
 function updateParticles() {
-    const REPEL_RADIUS = 90;
-    const REPEL_SPEED = 50;
-    const RETURN_SPEED = 0.4;
+    const REPEL_RADIUS = 200;
+    const REPEL_SPEED = 60;
+    const RETURN_SPEED = 0.5;
 
     particles.forEach((particle) => {
         const distanceFromMouseX = mouseX - particle.x;
